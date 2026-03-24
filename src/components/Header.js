@@ -158,7 +158,7 @@ const Header = () => {
           ))}
           <div className="md:hidden block -ml-10">
             <AnimatedButton
-              link={() => window.open("/NiharikaasopaResume.pdf")}
+              link={() => window.open("/NiharikaAsopaResume.pdf")}
               color="[#1E1D1D]"
             />
           </div>
@@ -166,7 +166,7 @@ const Header = () => {
 
         <div className="hidden md:block">
           <AnimatedButton
-            link={() => window.open("/NiharikaasopaResume.pdf")}
+            link={() => window.open("/NiharikaAsopaResume.pdf")}
             color="[#1E1D1D]"
           />
         </div>
