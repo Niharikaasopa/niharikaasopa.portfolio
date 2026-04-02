@@ -133,7 +133,7 @@ const Header = ({ darkMode }) => {
           {["about", "projects", "skills", "contact"].map((id, index) => (
             <a
               key={index}
-              className="py-2 md:py-0 hover:scale-110 transition-all ease duration-75 hover:underline cursor-pointer"
+              className="py-2 md:py-0 hover:scale-110 transition-all ease duration-200 hover:underline cursor-pointer"
               onClick={() => {
                 document;
                 slowScrollTo(id, 2000);
