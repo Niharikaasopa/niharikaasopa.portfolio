@@ -4,21 +4,8 @@ import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import AnimatedButton from "./AnimatedButton";
 
-const Header = () => {
+const Header = ({ darkMode }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [darkMode, setDarkMode] = useState(
-    typeof window !== "undefined" && localStorage.getItem("theme") === "dark",
-  );
-
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  }, [darkMode]);
 
   const slowScrollTo = (targetId, duration = 1500) => {
     const target = document.getElementById(targetId);
@@ -146,7 +133,7 @@ const Header = () => {
           {["about", "projects", "skills", "contact"].map((id, index) => (
             <a
               key={index}
-              className="py-2 md:py-0 hover:scale-110 transition-all ease duration-200 hover:underline cursor-pointer"
+              className="py-2 md:py-0 hover:scale-110 transition-all ease duration-75 hover:underline cursor-pointer"
               onClick={() => {
                 document;
                 slowScrollTo(id, 2000);
@@ -159,7 +146,7 @@ const Header = () => {
           <div className="md:hidden block -ml-10">
             <AnimatedButton
               link={() => window.open("/NiharikaAsopaResume.pdf")}
-              color="[#1E1D1D]"
+              color={`${darkMode ? "#000000" : "[#1E1D1D]"}`}
             />
           </div>
         </div>
@@ -167,7 +154,7 @@ const Header = () => {
         <div className="hidden md:block">
           <AnimatedButton
             link={() => window.open("/NiharikaAsopaResume.pdf")}
-            color="[#1E1D1D]"
+            color={`${darkMode ? "#000000" : "[#1E1D1D]"}`}
           />
         </div>
       </div>

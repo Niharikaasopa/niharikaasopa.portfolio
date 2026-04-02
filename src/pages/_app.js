@@ -8,9 +8,12 @@ const arapey = Arapey({ subsets: ["latin"], weight: ["400"] });
 
 export default function App({ Component, pageProps }) {
   const scrollRef = useRef(null);
-  const [darkMode, setDarkMode] = useState(
-    typeof window !== "undefined" && localStorage.getItem("theme") === "dark"
-  );
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    const stored = localStorage.getItem("theme");
+    if (stored === "dark") setDarkMode(true);
+  }, []);
 
   useEffect(() => {
     if (darkMode) {
@@ -62,14 +65,28 @@ export default function App({ Component, pageProps }) {
         {/* Favicon */}
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className={`${arapey.className} ${darkMode ? "dark" : ""}`} ref={scrollRef} data-scroll-container>
-        <Component {...pageProps} />
-        <button
-        className="fixed bottom-4 right-4 bg-black dark:bg-white text-white dark:text-black p-2 rounded-full"
-        onClick={() => setDarkMode(!darkMode)}
+      <div
+        className={`${arapey.className}`}
+        ref={scrollRef}
+        data-scroll-container
+        suppressHydrationWarning
       >
-        <Image width="20" height="20" src={darkMode ? "/icons/dark.svg" : "/icons/light.svg"} alt="theme" />
-      </button>
+        <Component
+          {...pageProps}
+          darkMode={darkMode}
+          setDarkMode={setDarkMode}
+        />
+        <button
+          className="fixed bottom-4 right-4 bg-black dark:bg-white text-white dark:text-black p-2 rounded-full"
+          onClick={() => setDarkMode(!darkMode)}
+        >
+          <Image
+            width="20"
+            height="20"
+            src={darkMode ? "/icons/dark.svg" : "/icons/light.svg"}
+            alt="theme"
+          />
+        </button>
       </div>
     </>
   );

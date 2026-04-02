@@ -53,9 +53,9 @@ export const ProjectsSlider = ({ autoplay = false }) => {
     },
   ];
 
-  const randomRotateY = () => {
-    return Math.floor(Math.random() * 21) - 10;
-  };
+  const rotations = [-9, 4, -3, 8, -5, 6, -7, 2];
+  const randomRotateY = (index) => rotations[index % rotations.length];
+
   return (
     <section
       className="xl:py-40 lg:py-20 pt-10 section-projects selection:bg-oynx selection:text-white bg-light dark:bg-darkSofter lg:px-20 md:px-10 px-4"
@@ -80,13 +80,13 @@ export const ProjectsSlider = ({ autoplay = false }) => {
                       opacity: 0,
                       scale: 0.9,
                       z: -100,
-                      rotate: randomRotateY(),
+                      rotate: randomRotateY(index),
                     }}
                     animate={{
                       opacity: isActive(index) ? 1 : 0.7,
                       scale: isActive(index) ? 1 : 0.95,
                       z: isActive(index) ? 0 : -100,
-                      rotate: isActive(index) ? 0 : randomRotateY(),
+                      rotate: isActive(index) ? 0 : randomRotateY(index),
                       zIndex: isActive(index)
                         ? 999
                         : testimonials.length + 2 - index,
@@ -96,7 +96,7 @@ export const ProjectsSlider = ({ autoplay = false }) => {
                       opacity: 0,
                       scale: 0.9,
                       z: 100,
-                      rotate: randomRotateY(),
+                      rotate: randomRotateY(index),
                     }}
                     transition={{
                       duration: 0.4,
