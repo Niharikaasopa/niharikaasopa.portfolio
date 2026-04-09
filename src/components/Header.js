@@ -145,7 +145,7 @@ const Header = ({ darkMode }) => {
           ))}
           <div className="md:hidden block -ml-10">
             <AnimatedButton
-              link={() => window.open("/NiharikaAsopaResume.pdf")}
+              link={() => window.open("/NiharikaAsopaResume-2.pdf")}
               color={`${darkMode ? "#000000" : "[#1E1D1D]"}`}
             />
           </div>
@@ -153,7 +153,7 @@ const Header = ({ darkMode }) => {
 
         <div className="hidden md:block">
           <AnimatedButton
-            link={() => window.open("/NiharikaAsopaResume.pdf")}
+            link={() => window.open("/NiharikaAsopaResume-2.pdf")}
             color={`${darkMode ? "#000000" : "[#1E1D1D]"}`}
           />
         </div>

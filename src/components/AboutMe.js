@@ -37,7 +37,7 @@ const AboutMe = () => {
             className={`text-2xl text-right text-white w-2/3 hover:text-oynx transition-all ease duration-200 dark:text-neutral-200 py-4 ${dancingScript.className}`}
             target="_blank"
             rel="noopener noreferrer"
-            href="/NiharikaAsopaResume.pdf"
+            href="/NiharikaAsopaResume-2.pdf"
           >
             more about me
           </a>
